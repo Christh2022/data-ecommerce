@@ -13,6 +13,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import warnings
+from pathlib import Path
 
 warnings.filterwarnings('ignore')
 
@@ -199,23 +200,27 @@ st.markdown("""
 def load_data():
     """Charge les donnees preparees."""
     try:
-        visitors = pd.read_csv('../outputs/data/visitor_features.csv')
-        products = pd.read_csv('../outputs/data/product_features.csv')
-        
+        # Résolution robuste du dossier 'outputs/data' par rapport au fichier courant
+        base_dir = Path(__file__).resolve().parent.parent
+        data_dir = base_dir / 'outputs' / 'data'
+
+        visitors = pd.read_csv(data_dir / 'visitor_features.csv')
+        products = pd.read_csv(data_dir / 'product_features.csv')
+
         try:
-            events = pd.read_csv('../outputs/data/events_clean.csv')
+            events = pd.read_csv(data_dir / 'events_clean.csv')
             events['timestamp'] = pd.to_datetime(events['timestamp'])
             events['date'] = events['timestamp'].dt.date
-        except:
+        except Exception:
             events = None
-            
+
         try:
-            kpis = pd.read_csv('../outputs/data/kpi_business_summary.csv')
-        except:
+            kpis = pd.read_csv(data_dir / 'kpi_business_summary.csv')
+        except Exception:
             kpis = None
-            
+
         return visitors, products, events, kpis
-    
+
     except Exception as e:
         st.error(f"Erreur de chargement: {e}")
         return None, None, None, None
