@@ -3,6 +3,7 @@
 Projet d'analyse e‑commerce contenant : nettoyage et pipeline de données, notebooks d'EDA et un dashboard Streamlit pour visualiser les KPI.
 
 ## Contenu du dépôt
+
 - `dashboard/` : application Streamlit (lancer avec `streamlit run dashboard/app.py`).
 - `data/` : fichiers bruts (CSV) d'origine.
 - `notebooks/` : notebooks Jupyter pour EDA et AB testing.
@@ -10,11 +11,13 @@ Projet d'analyse e‑commerce contenant : nettoyage et pipeline de données, not
 - `outputs/` : données et figures générées (CSV et images).
 
 ## Prérequis
+
 - Git
 - Python 3.8+ (3.9/3.10 recommandés)
 - Outils : `pip`, `virtualenv` ou `venv`
 
 ## Récupérer le projet
+
 1. Depuis Git (remplacez `<repo-url>` par l'URL du dépôt) :
 
 ```bash
@@ -27,6 +30,7 @@ git checkout dev
 2. Si le dépôt est hébergé sur GitHub/GitLab vous pouvez aussi télécharger le ZIP via l'interface web.
 
 ## Installer les dépendances
+
 Si un fichier `requirements.txt` existe :
 
 ```bash
@@ -48,6 +52,7 @@ pip install streamlit pandas numpy plotly
 ```
 
 ## Exemples d'utilisation
+
 - Lancer le pipeline de préparation des données :
 
 ```bash
@@ -67,6 +72,7 @@ jupyter lab  # ou jupyter notebook
 ```
 
 ## Mettre à jour / pousser des modifications
+
 - Vérifier l'état : `git status`
 - Ajouter des fichiers : `git add <path>`
 - Commit : `git commit -m "Message de commit"`
@@ -78,9 +84,4 @@ jupyter lab  # ou jupyter notebook
 - `scripts/data_pipeline.py` : ETL / nettoyage des fichiers d'entrée.
 - `outputs/data/` : sorties CSV (ex. `events_clean.csv`, `kpi_business_summary.csv`).
 
-## Aide
-Si vous avez besoin que je commit/pousse le `README.md` pour vous, répondez "push" ou fournissez un message de commit. Sinon, vous pouvez le committer localement avec les commandes ci‑dessus.
-
----
-Fichier créé automatiquement par l'assistant — modifiez-le selon vos besoins.
 # data-ecommerce
